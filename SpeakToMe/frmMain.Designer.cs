@@ -46,9 +46,12 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.tkbVolume = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tkbRate = new System.Windows.Forms.TrackBar();
             this.menuStrip1.SuspendLayout();
             this.flp1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tkbVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbRate)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSpeech
@@ -86,8 +89,9 @@
             // tsmiOpen
             // 
             this.tsmiOpen.Name = "tsmiOpen";
-            this.tsmiOpen.Size = new System.Drawing.Size(103, 22);
+            this.tsmiOpen.Size = new System.Drawing.Size(152, 22);
             this.tsmiOpen.Text = "Open";
+            this.tsmiOpen.Click += new System.EventHandler(this.tsmiOpen_Click);
             // 
             // tsmiVoice
             // 
@@ -206,14 +210,38 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Volume";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Speed";
+            // 
+            // tkbRate
+            // 
+            this.tkbRate.LargeChange = 2;
+            this.tkbRate.Location = new System.Drawing.Point(19, 238);
+            this.tkbRate.Minimum = -10;
+            this.tkbRate.Name = "tkbRate";
+            this.tkbRate.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tkbRate.Size = new System.Drawing.Size(45, 163);
+            this.tkbRate.TabIndex = 4;
+            this.tkbRate.TickFrequency = 2;
+            this.tkbRate.Value = 5;
+            this.tkbRate.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
             // fmrMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 478);
+            this.Controls.Add(this.txtSpeech);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tkbRate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flp1);
-            this.Controls.Add(this.txtSpeech);
             this.Controls.Add(this.tkbVolume);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -224,6 +252,7 @@
             this.menuStrip1.PerformLayout();
             this.flp1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tkbVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tkbRate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,6 +278,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiSelectVoice;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem installOtherVoiceToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar tkbRate;
     }
 }
 

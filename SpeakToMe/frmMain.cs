@@ -20,6 +20,8 @@ namespace SpeakToMe
         {
             InitializeComponent();
             synth.VoiceChange += Synth_VoiceChange;
+            tkbRate.Value = synth.Rate;
+            tkbVolume.Value = synth.Volume;
         }
 
         private void btnSpeak_Click(object sender, EventArgs e)
@@ -91,6 +93,27 @@ namespace SpeakToMe
             tsmiVoiceName.Text = "Voice Name: " + synth.Voice.Name;
             tsmiVoiceID.Text = "Voice ID: " + synth.Voice.Id;
             tkbVolume.Value = synth.Volume;
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            synth.Rate = tkbRate.Value;
+        }
+
+        private void tsmiOpen_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    List<string> lst = Mngrs.DirMngr.Read_All(ofd.FileName);
+                    txtSpeech.Text = "";
+                    foreach (var item in lst)
+                    {
+                        txtSpeech.Text += item;
+                    }
+                }
+            }
         }
     }
 }
